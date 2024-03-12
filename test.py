@@ -1,33 +1,15 @@
-import asyncio
-import logging
-import sys
-from menu import *
+import fitz  # PyMuPDF
 
-from aiogram import F
-from aiogram import Bot, Dispatcher, Router, types
-from aiogram.enums import ParseMode
-from aiogram.filters import CommandStart
-from aiogram.types import Message
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+def compress_pdf(input_path, output_path, quality=50):
+    doc = fitz.open(input_path)
+    for page in doc:
+        pix = page.get_pixmap()
+        pix.set_dpi(72)  # Установите DPI, соответствующий вашим требованиям
+        img = pix.tobytes("png")  # Сохраняем страницу как изображение
+        page.clean_contents()  # Удаляем содержимое страницы
+        page.insert_image(page.rect, stream=img)  # Вставляем изображение обратно в PDF
+    doc.save(output_path, garbage=4, deflate=True, clean=True)  # Сохраняем изменения
 
-
-API_TOKEN = '6887415444:AAEtWlH_8DncXs0EgCjSUXKZ-Zu-L5_pHMA'
-
-# Создаем бота и диспетчер
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot=bot)
-
-
-
-
-
-async def main() -> None:
-    # Initialize Bot instance with a default parse mode which will be passed to all API calls
-    bot = Bot(API_TOKEN, parse_mode=ParseMode.HTML)
-    # And the run events dispatching
-    await dp.start_polling(bot)
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    asyncio.run(main())
+input_path = "./files/presentation/SOLWELL.pdf"
+output_path = "./files/presentation/SOLWELL_final.pdf"
+compress_pdf(input_path, output_path)
