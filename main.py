@@ -166,7 +166,7 @@ https://solwell.kz/""")
 
 @dp.callback_query(F.data == "library_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
-    await callback.message.answer("""Отправляыю вам краткую информацию о нас ожидайте""")
+    await callback.message.answer("""Отправляю вам краткую информацию о нас ожидайте""")
     agenda = FSInputFile("./files/presentation/SOLWELL.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 @dp.callback_query(F.data == "library_kz")
