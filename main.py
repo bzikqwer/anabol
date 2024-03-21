@@ -1,6 +1,8 @@
 import asyncio
 import logging
 import sys
+
+from aiogram.client.default import DefaultBotProperties
 from aiogram.methods.send_video import SendVideo
 from aiogram import F
 from aiogram import Bot, Dispatcher, Router, types
@@ -8,6 +10,7 @@ from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message, FSInputFile
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardMarkup, ReplyKeyboardBuilder
+from tk import API_TOKEN
 
 
 
@@ -63,10 +66,10 @@ async def send_ru_menu(callback: types.CallbackQuery):
         text="Библиотека и контент",
         callback_data="library_ru")
     )
-    builder.row(types.InlineKeyboardButton(
-        text="Маркетинг План",
-        callback_data="marketing_ru")
-    )
+    # builder.row(types.InlineKeyboardButton(
+    #     text="Маркетинг План",
+    #     callback_data="marketing_ru")
+    # )
     builder.row(types.InlineKeyboardButton(
         text="Адреса филиалов и пунктов выдачи",
         callback_data="locations_ru")
@@ -109,10 +112,10 @@ async def send_kz_menu(callback: types.CallbackQuery):
     )
 
 
-    builder.row(types.InlineKeyboardButton(
-        text="Маркетинг жоспары",
-        callback_data="marketing_kz")
-    )
+    # builder.row(types.InlineKeyboardButton(
+    #     text="Маркетинг жоспары",
+    #     callback_data="marketing_kz")
+    # )
 
 
     builder.row(types.InlineKeyboardButton(
@@ -147,25 +150,27 @@ async def send_kz_menu(callback: types.CallbackQuery):
     )
 
 @dp.callback_query(F.data == "company_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
+async def send_ru_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Компания SOLWELL - это
 сообщество людей, своим главным приоритетом в жизни выбрали здоровье.
 
-Мы направили наш опыт, наши знания и умения на то, чтобы помочь себе и другим минимализировать последствия 
+Мы направили наш опыт, наши знания и умения на то, чтобы помочь себе и другим минимализировать последствия
 уже накопившихся проблем со здоровьем, а в каких-то случаях и решить их полностью.
 Подробно о нас Вы можете узнать на нашем сайте:
 https://solwell.kz/""")
+
 @dp.callback_query(F.data == "company_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""SOLWELL - бұл өмірде басты приоритет ретінде денсаулықты таңдаған адамдардың қоғамы.
 
-Мы тәжірибемізді, білімімізді және дағдыларымызды денсаулық мәселелерінің алдын алуға және оларды шешуге бағыттадық, 
+Мы тәжірибемізді, білімімізді және дағдыларымызды денсаулық мәселелерінің алдын алуға және оларды шешуге бағыттадық,
 кейде тіпті толықтай жоюға көмектесу үшін.
 Біз туралы толығырақ сіз біздің сайттан біле аласыз:
 https://solwell.kz/""")
 
+
 @dp.callback_query(F.data == "library_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
+async def send_ru_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю вам краткую информацию о нас ожидайте""")
     agenda = FSInputFile("./files/presentation/SOLWELL.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
@@ -174,14 +179,14 @@ async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Сізге біз туралы қысқаша ақпарат жіберемін""")
     agenda = FSInputFile("./files/presentation/SOLWELL.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
-@dp.callback_query(F.data == "marketing_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
-    pass
-@dp.callback_query(F.data == "marketing_kz")
-async def send_kz_menu(callback: types.CallbackQuery):
-    pass
+# @dp.callback_query(F.data == "marketing_ru")
+# async def send_kz_menu(callback: types.CallbackQuery):
+#     pass
+# @dp.callback_query(F.data == "marketing_kz")
+# async def send_kz_menu(callback: types.CallbackQuery):
+#     pass
 @dp.callback_query(F.data == "locations_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
+async def send_ru_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Центральный офис
 Телефоны:
 ☎️ +7 777 552 94 59 - 🟢 WhatsApp | 🔵 Telegram | 🟣 Viber
@@ -195,33 +200,256 @@ async def send_kz_menu(callback: types.CallbackQuery):
 📞 +7 702 701 79 68 - байланыс телефоны
 Мекен-жайы: Бұқар жырау көшесі 33, кеңсе 1""")
 @dp.callback_query(F.data == "products_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
-    await callback.message.answer("""Подробней о наших продуктах вы можете узнать на нашем сайте, там же вы найдете актуальные цены на них:
-https://solwell.kz/ru/store """)
+async def send_ru_menu(callback: types.CallbackQuery):
+    builder = InlineKeyboardBuilder()
+    builder.row(types.InlineKeyboardButton(
+        text="Men’s Fulvic and Humic Acid detox",
+        callback_data="mens_fulvic_humic_acid_detox_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Women’s Fulvic and Humic Acid detox",
+        callback_data="womens_fulvic_humic_acid_detox_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic and Humic Acid detox",
+        callback_data="antiage_fulvic_humic_acid_detox_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Men’s Fulvic and Humic Acid extract",
+        callback_data="mens_fulvic_humic_acid_extract_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Women’s Fulvic and Humic Acid extract",
+        callback_data="womens_fulvic_humic_acid_extract_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic and Humic Acid extract",
+        callback_data="antiage_fulvic_humic_acid_extract_ru")
+    )
+    builder.row(types.InlineKeyboardButton(
+        text="Kid’s marmalade",
+        callback_data="kids_marmalade_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Food Sea Salt",
+        callback_data="food_sea_salt_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Spirulina Soap",
+        callback_data="spirulina_soap_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Humic Soap",
+        callback_data="humic_soap_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Womens spirulina collagen",
+        callback_data="womens_spirulina_collagen_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Family black cumin biocomplex",
+        callback_data="family_black_cumin_biocomplex_ru")
+    )
+    builder.row(types.InlineKeyboardButton(
+        text="Men Fulvic Acid",
+        callback_data="men_fulvic_acid_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Womens Fulvic Acid",
+        callback_data="womens_fulvic_acid_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic Acid",
+        callback_data="antiage_fulvic_acid_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Onco-Protector",
+        callback_data="onco_protector_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Eye Health",
+        callback_data="eye_health_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Weight Loss Essentials",
+        callback_data="weight_loss_essentials_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti - Alcohol",
+        callback_data="anti_alcohol_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="High Molecular Weight",
+        callback_data="high_molecular_weight_ru")
+    )
+
+    await callback.message.answer(
+        """Наши продукты""",
+        reply_markup=builder.as_markup()
+    )
 @dp.callback_query(F.data == "products_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
-    await callback.message.answer("""Біздің өнімдер туралы толығырақ ақпаратты біздің веб-сайтымыздан біле аласыздар, сондай-ақ онда олардың актуалды бағаларын таба аласыздар:
-https://solwell.kz/ru/store""")
+    builder = InlineKeyboardBuilder()
+
+    builder.row(types.InlineKeyboardButton(
+        text="Men’s Fulvic and Humic Acid detox",
+        callback_data="mens_fulvic_humic_acid_detox_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Women’s Fulvic and Humic Acid detox",
+        callback_data="womens_fulvic_humic_acid_detox_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic and Humic Acid detox",
+        callback_data="antiage_fulvic_humic_acid_detox_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Men’s Fulvic and Humic Acid extract",
+        callback_data="mens_fulvic_humic_acid_extract_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Women’s Fulvic and Humic Acid extract",
+        callback_data="womens_fulvic_humic_acid_extract_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic and Humic Acid extract",
+        callback_data="antiage_fulvic_humic_acid_extract_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Kid’s marmalade",
+        callback_data="kids_marmalade_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Food Sea Salt",
+        callback_data="food_sea_salt_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Spirulina Soap",
+        callback_data="spirulina_soap_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Humic Soap",
+        callback_data="humic_soap_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Womens spirulina collagen",
+        callback_data="womens_spirulina_collagen_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Family black cumin biocomplex",
+        callback_data="family_black_cumin_biocomplex_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Men Fulvic Acid",
+        callback_data="men_fulvic_acid_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Womens Fulvic Acid",
+        callback_data="womens_fulvic_acid_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti-age Fulvic Acid",
+        callback_data="antiage_fulvic_acid_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Onco-Protector",
+        callback_data="onco_protector_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Eye Health",
+        callback_data="eye_health_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Weight Loss Essentials",
+        callback_data="weight_loss_essentials_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Anti - Alcohol",
+        callback_data="anti_alcohol_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="High Molecular Weight",
+        callback_data="high_molecular_weight_kz")
+    )
+
+    await callback.message.answer(
+         """Наши продукты""",
+        reply_markup=builder.as_markup()
+    )
 @dp.callback_query(F.data == "school_ru")
-async def send_kz_menu(callback: types.CallbackQuery):
-    pass
+async def send_ru_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""Solwell Business School: Развивайте свои навыки с нами
+
+Solwell Business School - это новый онлайн-образовательный проект, созданный для того, чтобы помочь вам развить ключевые навыки в сфере бизнеса. Наша программа охватывает пять основных блоков обучения, предоставляя участникам полезные знания и навыки для успешной карьеры.
+
+📈Основы маркетинга: Мы расскажем вам о стратегиях привлечения клиентов, создании уникального бренда и эффективном позиционировании на рынке.
+
+💰Искусство продаж: Узнайте, как создавать убедительные предложения, устанавливать контакт с клиентами и заключать успешные сделки.
+
+📱SMM (социальные медиа маркетинг): Погрузитесь в мир социальных сетей и узнайте, как эффективно использовать их для продвижения бизнеса и привлечения аудитории.
+
+🏦Финансовая грамотность: Наши эксперты помогут вам разобраться в финансовых аспектах бизнеса, научат управлять бюджетом и принимать обоснованные финансовые решения.
+
+🗣️Навыки переговоров: Освойте техники ведения успешных переговоров, умение добиваться выгодных условий и разрешать конфликты.
+
+Наши занятия проводят опытные спикеры и профессионалы своего дела, которые поделятся своими знаниями, опытом и лучшими практиками. 
+
+Бизнес-школа доступна на русском и казахском языках, обеспечивая комфортное обучение для всех желающих. Присоединяйтесь к Solwell Business School и откройте для себя новые горизонты в мире бизнеса!""")
 @dp.callback_query(F.data == "school_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
-    pass
-# @dp.callback_query(F.data == "company_ru")
-# async def send_kz_menu(callback: types.CallbackQuery):
-#
-#
-#
-#
-#
-#     ## передача файла
-#     agenda = FSInputFile("./files/presentation/SOLWELL.pdf")
-#     await bot.send_document(callback.message.chat.id, agenda)
-#     # передача видео
-#     # video = FSInputFile("tk.mp4")  # используем готовый класс
-#     #
-#     # await bot.send_video(callback.message.chat.id, video=video)  # отправляем видео
+    await callback.message.answer("""Solwell Business School: Бізбен бірге өз дағдыларыңызды дамытыңыз
+
+Solwell Business School - бұл сіздің бизнес саласындағы негізгі дағдыларыңызды дамытуға көмектесу үшін құрылған жаңа онлайн-білім беру жобасы. Біздің бағдарламамыз бес негізгі оқу блогын қамтиды, қатысушыларға сәтті мансап құру үшін пайдалы білім мен дағдыларды ұсынады.
+
+📈Маркетингтің негіздері: Біз сізге клиенттерді тарту стратегиялары, уникальды бренд құру және нарықта тиімді орналасу туралы айтып береміз.
+
+💰Сату өнері: Сенімді ұсыныстар жасауды, клиенттермен байланыс орнатуды және сәтті келісімдер жасауды үйреніңіз.
+
+📱SMM (әлеуметтік медиа маркетинг): Әлеуметтік желілер әлеміне батып, оларды бизнесті ілгерілету және аудиторияны тарту үшін қалай тиімді пайдалануға болатынын үйреніңіз.
+
+🏦Қаржы сауаттылығы: Біздің сарапшылар сізге бизнестің қаржы аспектілерін түсінуге, бюджетті басқаруға және негізделген қаржылық шешімдер қабылдауға көмектеседі.
+
+🗣️Келіссөз дағдылары: Табысты келіссөздер жүргізу техникаларын, тиімді шарттарға қол жеткізу қабілетін және қақтығыстарды шешу дағдыларын меңгеріңіз.
+
+Біздің сабақтарымызды өз ісінің кәсіби мамандары және тәжірибелі спикерлер жүргізеді, олар өз білімдерімен, тәжірибелерімен және үздік тәжірибелерімен бөліседі.
+
+Бизнес-мектебіміз қазақ және орыс тілдерінде қолжетімді, барлық қалаушылар үшін ыңғайлы оқу мүмкінді""")
 
 async def main() -> None:
     # Initialize Bot instance with a default parse mode which will be passed to all API calls
