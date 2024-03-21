@@ -10,7 +10,7 @@ from aiogram.types import Message, FSInputFile
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardMarkup, ReplyKeyboardBuilder
 
 
-API_TOKEN = '7137664004:AAGmHH78sFwHSk_V_rJsAxzw1LXXLunIJ00'
+
 
 # Создаем бота и диспетчер
 bot = Bot(token=API_TOKEN)
