@@ -382,7 +382,7 @@ async def send_kz_menu(callback: types.CallbackQuery):
 **Как получить доступ в SOLWELL Business School?**
 - Вы можете обратиться в “Горячую линию” или написать личное сообщение по номеру:+77071651655, в Телеграм.
 
-""",parse_mode='Markdown')
+""",parse_mode='MarkdownV2')
 @dp.callback_query(F.data == "FAQ_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""
@@ -412,7 +412,7 @@ async def send_kz_menu(callback: types.CallbackQuery):
 
 **SOLWELL Business School-ға қалай қол жеткізуге болады?**
 - “Жедел желіге” хабарласуға немесе Телеграм арқылы +77071651655 номеріне жеке хабарлама жіберуге болады.
-""",parse_mode='Markdown')
+""",parse_mode='MarkdownV2')
 @dp.callback_query(F.data == "products_ru")
 async def send_ru_menu(callback: types.CallbackQuery):
     builder = InlineKeyboardBuilder()
