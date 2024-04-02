@@ -119,7 +119,7 @@ async def send_kz_menu(callback: types.CallbackQuery):
 
 
     builder.row(types.InlineKeyboardButton(
-        text="Филиалдар мен шығару өндіріс орындарының",
+        text="Филиалдар орындарының мекенжайлары",
         callback_data="locations_kz")
     )
 
