@@ -670,43 +670,43 @@ Solwell Business School - бұл сіздің бизнес саласындағ�
 @dp.callback_query(F.data == "mens_fulvic_humic_acid_detox_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Men’s Fulvic and Humic Acid detox_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Mens Fulvic and Humic Acid detoxru.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_humic_acid_detox_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Women’s Fulvic and Humic Acid detox_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Womens Fulvic and Humic Acid DetoxRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_humic_acid_detox_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Anti-age Fulvic and Humic Acid detox_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Anti-age Fulvic and Humic Acid detoxRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "mens_fulvic_humic_acid_extract_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Men’s Fulvic and Humic Acid extract_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Mens Fulvic and Humic Acid BioComplexRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_humic_acid_extract_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Women’s Fulvic and Humic Acid extract_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Womens Fulvic and Humic Acid BioComplexRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_humic_acid_extract_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Anti-age Fulvic and Humic Acid extract_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Anti-age Fulvic and Humic Acid BioComplexRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "kids_marmalade_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Kid’s marmalade_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Kid’s marmaladeRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "food_sea_salt_ru")
@@ -718,73 +718,73 @@ async def send_kz_menu(callback: types.CallbackQuery):
 @dp.callback_query(F.data == "spirulina_soap_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Spirulina Soap_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Spirulina SoapRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "humic_soap_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Humic Soap_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Humic SoapRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_spirulina_collagen_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Womens spirulina collagen_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Womens spirulina collagenRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "family_black_cumin_biocomplex_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Family black cumin biocomplex_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Family black cumin biocomplexRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "men_fulvic_acid_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Men Fulvic Acid_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Men Fulvic AcidRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_acid_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Womens Fulvic Acid_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Womens Fulvic AcidRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_acid_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Anti-age Fulvic Acid_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Anti - AlcoholRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "onco_protector_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Onco-Protector_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Onco-ProtectorRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "eye_health_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Eye Health_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Eye Healthru.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "weight_loss_essentials_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Weight Loss Essentials_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Weight Loss EssentialsRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "anti_alcohol_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/Anti - Alcohol_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/Anti - AlcoholRu.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "high_molecular_weight_ru")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю описание товара, ожидайте""")
-    agenda = FSInputFile("./files/products/ru/final/High Molecular Weight_ru.pdf")
+    agenda = FSInputFile("./files/products/ru/final/High Molecular WeightRU.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 ## функции для продуктов kz
@@ -792,43 +792,43 @@ async def send_kz_menu(callback: types.CallbackQuery):
 @dp.callback_query(F.data == "mens_fulvic_humic_acid_detox_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Men’s Fulvic and Humic Acid detox_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Men’s Fulvic and Humic Acid detoxKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_humic_acid_detox_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Women’s Fulvic and Humic Acid detox_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Women’s Fulvic and Humic Acid detoxKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_humic_acid_detox_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic and Humic Acid detox_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic and Humic Acid detoxKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "mens_fulvic_humic_acid_extract_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Men’s Fulvic and Humic Acid extract_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Men’s Fulvic and Humic Acid extractKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_humic_acid_extract_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Women’s Fulvic and Humic Acid extract_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Women’s Fulvic and Humic Acid BioComplexKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_humic_acid_extract_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic and Humic Acid extract_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic and Humic Acid extractKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "kids_marmalade_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Kid’s marmalade_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Kid’s marmaladeKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "food_sea_salt_kz")
@@ -837,76 +837,76 @@ async def send_kz_menu(callback: types.CallbackQuery):
     agenda = FSInputFile("./files/products/kz/final/Food Sea Salt_kz.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
-@dp.callback_query(F.data == "spikzlina_soap_kz")
+@dp.callback_query(F.data == "spirulina_soap_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Spikzlina Soap_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Spirulina Soap.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "humic_soap_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Humic Soap_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Humic SoapKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
-@dp.callback_query(F.data == "womens_spikzlina_collagen_kz")
+@dp.callback_query(F.data == "womens_spirulina_collagen_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Womens spikzlina collagen_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Womens spirulina collagenKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "family_black_cumin_biocomplex_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Family black cumin biocomplex_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Family black cumin biocomplexKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "men_fulvic_acid_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Men Fulvic Acid_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Men Fulvic AcidKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "womens_fulvic_acid_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Womens Fulvic Acid_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Womens Fulvic AcidKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "antiage_fulvic_acid_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic Acid_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Anti-age Fulvic AcidKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "onco_protector_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Onco-Protector_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Onco-ProtectorKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "eye_health_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Eye Health_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Eye HealthKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "weight_loss_essentials_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Weight Loss Essentials_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Weight Loss EssentialsKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "anti_alcohol_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/Anti - Alcohol_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/Anti - AlcoholKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 @dp.callback_query(F.data == "high_molecular_weight_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Тауар сипаттамасын жіберемін, күте тұрыңыз""")
-    agenda = FSInputFile("./files/products/kz/final/High Molecular Weight_kz.pdf")
+    agenda = FSInputFile("./files/products/kz/final/High Molecular WeightKZ.pdf")
     await bot.send_document(callback.message.chat.id, agenda)
 
 async def main() -> None:
