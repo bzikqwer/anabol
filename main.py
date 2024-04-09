@@ -61,6 +61,10 @@ async def send_ru_menu(message: types.Message):
         text="О компании",
         callback_data="company_ru")
     )
+    builder.row(types.InlineKeyboardButton(
+        text="Сертификаты",
+        callback_data="cert_ru")
+    )
 
     builder.row(types.InlineKeyboardButton(
         text="Библиотека и контент",
@@ -99,7 +103,10 @@ async def send_ru_menu(callback: types.CallbackQuery):
         text="О компании",
         callback_data="company_ru")
     )
-
+    builder.row(types.InlineKeyboardButton(
+        text="Сертификаты",
+        callback_data="cert_ru")
+    )
     builder.row(types.InlineKeyboardButton(
         text="Библиотека и контент",
         callback_data="library_ru")
@@ -146,7 +153,10 @@ async def send_kz_menu(message: types.Message):
         text="Компания туралы",
         callback_data="company_kz")
     )
-
+    builder.row(types.InlineKeyboardButton(
+        text="Сертификаттар",
+        callback_data="cert_kz")
+    )
     builder.row(types.InlineKeyboardButton(
         text="Кітапхана және контент",
         callback_data="library_kz")
@@ -196,7 +206,10 @@ async def send_kz_menu(callback: types.CallbackQuery):
         text="Компания туралы",
         callback_data="company_kz")
     )
-
+    builder.row(types.InlineKeyboardButton(
+        text="Сертификаттар",
+        callback_data="cert_kz")
+    )
 
     builder.row(types.InlineKeyboardButton(
         text="Кітапхана және контент",
@@ -263,7 +276,16 @@ async def send_kz_menu(callback: types.CallbackQuery):
 Біз туралы толығырақ біздің сайттан біле аласыз:
 https://solwell.kz/""")
 
-
+@dp.callback_query(F.data == "cert_ru")
+async def send_ru_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""Отправляю вам краткую информацию о нас ожидайте""")
+    agenda = FSInputFile("./files/cert/ru/Сертификаты.pdf")
+    await bot.send_document(callback.message.chat.id, agenda)
+@dp.callback_query(F.data == "cert_kz")
+async def send_ru_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""Сізге біз туралы қысқаша ақпарат жіберемін""")
+    agenda = FSInputFile("./files/cert/kz/Сертификаты.pdf")
+    await bot.send_document(callback.message.chat.id, agenda)
 @dp.callback_query(F.data == "library_ru")
 async def send_ru_menu(callback: types.CallbackQuery):
     await callback.message.answer("""Отправляю вам краткую информацию о нас ожидайте""")
