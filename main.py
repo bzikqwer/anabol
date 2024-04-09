@@ -7,7 +7,7 @@ from aiogram.methods.send_video import SendVideo
 from aiogram import F
 from aiogram import Bot, Dispatcher, Router, types
 from aiogram.enums import ParseMode
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, FSInputFile
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardMarkup, ReplyKeyboardBuilder
 from tk import API_TOKEN
@@ -35,6 +35,7 @@ async def command_start_handler(message: Message) -> None:
         "Выберите язык для общения с меню",
         reply_markup=builder.as_markup()
     )
+
 @dp.callback_query(F.data == "menu")
 async def send_ru_menu(callback: types.CallbackQuery):
     builder = InlineKeyboardBuilder()
@@ -52,6 +53,43 @@ async def send_ru_menu(callback: types.CallbackQuery):
         reply_markup=builder.as_markup()
     )
 
+@dp.message(Command("menu_ru"))
+async def send_ru_menu(message: types.Message):
+
+    builder = InlineKeyboardBuilder()
+    builder.row(types.InlineKeyboardButton(
+        text="О компании",
+        callback_data="company_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Библиотека и контент",
+        callback_data="library_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Часто задаваемые вопросы",
+        callback_data="FAQ_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="О продуктах",
+        callback_data="products_ru")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Бизнес школа SOLWELL",
+        callback_data="school_ru")
+    )
+
+    await message.answer(
+        """Здесь главное меню
+
+Я могу тебе рассказать о компании, продукции, маркетинге, о том, как и сколько ты сможешь зарабатывать в компании и многое другое!
+
+⬇️Выбирай с чего начнем:""",
+        reply_markup=builder.as_markup()
+    )
 @dp.callback_query(F.data == "ru")
 async def send_ru_menu(callback: types.CallbackQuery):
 
@@ -98,6 +136,55 @@ async def send_ru_menu(callback: types.CallbackQuery):
 ⬇️Выбирай с чего начнем:""",
         reply_markup=builder.as_markup()
     )
+
+
+@dp.message(Command("menu_kz"))
+async def send_kz_menu(message: types.Message):
+    builder = InlineKeyboardBuilder()
+
+    builder.row(types.InlineKeyboardButton(
+        text="Компания туралы",
+        callback_data="company_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Кітапхана және контент",
+        callback_data="library_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Жиі қойылатын сұрақтар",
+        callback_data="FAQ_kz")
+    )
+    # builder.row(types.InlineKeyboardButton(
+    #     text="Маркетинг жоспары",
+    #     callback_data="marketing_kz")
+    # )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Филиалдар орындарының мекенжайлары",
+        callback_data="locations_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="Өнімдер туралы",
+        callback_data="products_kz")
+    )
+
+    builder.row(types.InlineKeyboardButton(
+        text="SOLWELL бизнес мектебі",
+        callback_data="school_kz")
+    )
+
+    await message.answer(
+        """Мұнда негізгі мәзір👇
+
+😊Мен саған компания, өнімдер, маркетинг, компанияда қалай және қанша таба алатының және басқа да көп нәрсе туралы айтайын!
+
+⬇️Бастаймыз дегенді таңда:""",
+        reply_markup=builder.as_markup()
+    )
+
 
 @dp.callback_query(F.data == "kz")
 async def send_kz_menu(callback: types.CallbackQuery):
@@ -493,16 +580,113 @@ async def send_kz_menu(callback: types.CallbackQuery):
 # """,parse_mode='Markdown')
 @dp.callback_query(F.data == "FAQ_kz")
 async def send_kz_menu(callback: types.CallbackQuery):
-    builder = InlineKeyboardBuilder()
-    await callback.message.answer('Как купить пакет продукции через Halyk.market или Jusan?')
-    builder.row(types.InlineKeyboardButton(
+    builder1 = InlineKeyboardBuilder()
+    builder1.row(types.InlineKeyboardButton(
         text="ответ",
-        callback_data="p1_ru")
+        callback_data="p1_kz")
     )
-    await callback.message.answer('Почему на Halyk market цена пакета увеличилась до  564.000?')
-    builder.row(types.InlineKeyboardButton(
+    await callback.message.answer(
+        """1️⃣Өнім пакетін Halyk.market немесе Jusan арқылы қалай сатып алуға болады?""",
+        reply_markup=builder1.as_markup()
+    )
+    builder2 = InlineKeyboardBuilder()
+    builder2.row(types.InlineKeyboardButton(
         text="ответ",
-        callback_data="p2_ru")
+        callback_data="p2_kz")
+    )
+    await callback.message.answer(
+        """2️⃣Неге Halyk market қосымшасында баға 564.000 теңгеге артты?""",
+        reply_markup=builder2.as_markup()
+    )
+    builder3 = InlineKeyboardBuilder()
+    builder3.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p3_kz")
+    )
+    await callback.message.answer(
+        """3️⃣Каспи банкінде бөліп төлеу бар ма?""",
+        reply_markup=builder3.as_markup()
+    )
+    builder4 = InlineKeyboardBuilder()
+    builder4.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p4_kz")
+    )
+    await callback.message.answer(
+        """4️⃣Жалақыны қашан аламын?""",
+        reply_markup=builder4.as_markup()
+    )
+    builder5 = InlineKeyboardBuilder()
+    builder5.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p5_kz")
+    )
+    await callback.message.answer(
+        """5️⃣Неліктен маған жалақы әлі түспеді?""",
+        reply_markup=builder5.as_markup()
+    )
+    builder6 = InlineKeyboardBuilder()
+    builder6.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p6_kz")
+    )
+    await callback.message.answer(
+        """6️⃣Кеңес беруші дәрігер бар ма?""",
+        reply_markup=builder6.as_markup()
+    )
+    builder7 = InlineKeyboardBuilder()
+    builder7.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p7_kz")
+    )
+    await callback.message.answer(
+        """7️⃣Өнімдеріңіз ХАЛАЛ ма? Сертификат бар ма?""",
+        reply_markup=builder7.as_markup()
+    )
+    builder8 = InlineKeyboardBuilder()
+    builder8.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p8_kz")
+    )
+    await callback.message.answer(
+        """8️⃣Ағылшын тілінде каталог бар ма?""",
+        reply_markup=builder8.as_markup()
+    )
+    builder9 = InlineKeyboardBuilder()
+    builder9.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p9_kz")
+    )
+    await callback.message.answer(
+        """9️⃣Неліктен құрамында әр заттың қанша миллиграм екендігі жазылмаған? """,
+        reply_markup=builder9.as_markup()
+    )
+    builder10 = InlineKeyboardBuilder()
+    builder10.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p10_kz")
+    )
+    await callback.message.answer(
+        """1️⃣0️⃣Беру пунктілерінің және кеңселердің мекенжайларын қайдан көре аламын? """,
+        reply_markup=builder10.as_markup()
+    )
+    builder11 = InlineKeyboardBuilder()
+    builder11.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p11_kz")
+    )
+    await callback.message.answer(
+        """1️⃣1️⃣Anti Age өнімін қабылдағаннан кейін жағымсыз әсерлер бар, неліктен? """,
+        reply_markup=builder11.as_markup()
+    )
+    builder12 = InlineKeyboardBuilder()
+    builder12.row(types.InlineKeyboardButton(
+        text="ответ",
+        callback_data="p12_kz")
+    )
+    await callback.message.answer(
+        """1️⃣2️⃣SOLWELL Business School сайтына қалай кіруге болады?""",
+        reply_markup=builder12.as_markup()
     )
 #     await callback.message.answer("""
 #     **Рассрочка бар ма?**
@@ -1087,6 +1271,76 @@ async def send_kz_menu(callback: types.CallbackQuery):
     await callback.message.answer("""1️⃣2️⃣Как получить доступ в SOLWELL Business School?
 -Вы можете обратиться в “Горячую линию”  или написать личное сообщение по номеру:+77071651655, в Телеграм.""")
 
+#FAQ kz функции --------------------------------------------------------------------------
+@dp.callback_query(F.data == "p1_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""1️⃣Өнім пакетін Halyk.market немесе Jusan арқылы қалай сатып алуға болады?
+-	Halyk.market/ Jusan қосымшасына кіріп, іздеу жолына «Solwell» сөзін енгізіңіз, сонда 535.000 теңге тұратын өнім пакеті шығады. Әрі қарай төлем картасы немесе бөліп төлеу арқылы төлей аласыз. 
+""")
+@dp.callback_query(F.data == "p2_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""2️⃣Неге Halyk market қосымшасында баға 564.000 теңгеге артты?
+- Егер сіз пакетті 24 айға бөліп төлеу арқылы қайта алатын болсаңыз, онда банк пайызы жоғары болады.
+""")
+@dp.callback_query(F.data == "p3_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""3️⃣Каспи банкінде бөліп төлеу бар ма?
+- Иә, бар. Бөліп төлеуді ресімдеу үшін кеңседе немесе беру нүктесінде QR кодын сканерлеуіңіз қажет.
+""")
+@dp.callback_query(F.data == "p4_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""4️⃣Жалақыны қашан аламын?
+- барлық төлемдер сейсенбі және сәрсенбі күндері жүргізіледі.
+""")
+@dp.callback_query(F.data == "p5_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""5️⃣Неліктен маған жалақы әлі түспеді?
+Біріншіден, барлық жабу құжаттарын уақытылы өткізгеніңізді тексеріңіз, нақтырақ айтқанда:
+1.	Орындалған жұмыстар актісі
+2.	Электронды шот-фактура
+Бқл құжаттарды solwell.kz@gmail.com поштасына жіберу керек.
+
+Екіншіден, төлемдерді шығару дүйсенбі күндері сағат 23:00 дейін жүргізіледі. Егер сіз одан кейін жіберсеңіз, төлемдер келесі аптаға қалдырылады.
+ 
+""")
+@dp.callback_query(F.data == "p6_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""6️⃣Кеңес беруші дәрігер бар ма?
+-	Бар. Байланыс нөмірі: +77071039111. Сонымен қатар, дәрігер сұрақтарыңызға Телеграм қосымшасындағы «Сенім телефоны» бөлімінде жауап береді. 
+
+Өнімді беру пунктінен ішінара алса болады ма? 
+- Болады, бірақ тек бір беру пунктінен ғана. Өнімнің бір бөлігін бір беру пунктінен, қалған бөлігін басқа беру пунктінен алуға болмайды.
+""")
+@dp.callback_query(F.data == "p7_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""7️⃣Өнімдеріңіз ХАЛАЛ ма? Сертификат бар ма?
+-	Иә. Коллаген Түркияда сиыр етінен өндірігілген, халал болып табылады. Сертификатты «Кітапхана және контент» бөлімінен таба аласыз.
+""")
+@dp.callback_query(F.data == "p8_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""8️⃣Ағылшын тілінде каталог бар ма?
+-	Қазіргі уақытта ағылшын тіліндегі каталог әзірленуде. 
+""")
+@dp.callback_query(F.data == "p9_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""9️⃣Неліктен құрамында әр заттың қанша миллиграм екендігі жазылмаған? 
+-	SOLWELL өнімінің құрамы органикалық болып табылады. Бұл әр жеміс немесе көкөністің бірегейлігіне байланысты, өйткені олардың өзіндік қайталанбас құрамы бар. 
+""")
+@dp.callback_query(F.data == "p10_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""1️⃣0️⃣Беру пунктілерінің және кеңселердің мекенжайларын қайдан көре аламын? 
+-	SOLWELL компаниясының барлық беру пунктілері мен кеңселерінің мекенжайларын «Бөлімшелер мен беру пунктілерінің мекенжайлары» бөлімінен көре аласыз.
+""")
+@dp.callback_query(F.data == "p11_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""1️⃣1️⃣Anti Age өнімін қабылдағаннан кейін жағымсыз әсерлер бар, неліктен? 
+-	Наргиз Омарова, биотехнолог-әзірлеуші: «Барлық жиналған зиянды заттар, тіпті тастар мен ауыр металдарды ағзадан шығару үшін қабылдауды гуматтан (2 апта) бастаған өте маңызды. Содан кейін ғана детокс пен капсулаларды ішуді бастаңыз».
+""")
+@dp.callback_query(F.data == "p12_kz")
+async def send_kz_menu(callback: types.CallbackQuery):
+    await callback.message.answer("""1️⃣2️⃣SOLWELL Business School сайтына қалай кіруге болады?
+-	Сенім телефонына қоңырау шалыңыз немесе Телеграм қосымшасындағы +77071651655 нөмірі бойынша жеке хабарлама жазсаңыз болады. 
+""")
 
 async def main() -> None:
     # Initialize Bot instance with a default parse mode which will be passed to all API calls
