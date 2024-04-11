@@ -75,7 +75,10 @@ async def send_ru_menu(message: types.Message):
         text="Часто задаваемые вопросы",
         callback_data="FAQ_ru")
     )
-
+    builder.row(types.InlineKeyboardButton(
+        text="Адреса филиалов и пунктов выдачи",
+        callback_data="locations_ru")
+    )
     builder.row(types.InlineKeyboardButton(
         text="О продуктах",
         callback_data="products_ru")
